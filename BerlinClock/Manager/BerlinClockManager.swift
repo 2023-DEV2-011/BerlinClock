@@ -33,6 +33,11 @@ class BerlinClockManager {
         return [firstRowLampState, secondRowLampState]
     }
     
+    func computeMinutesLampState(from date: Date) -> [[LampState]] {
+        return [[.yellow, .off, .off, .off, .off, .off, .off, .off, .off, .off, .off],
+                [.off, .off, .off, .off]]
+    }
+    
 }
 
 // MARK: - Helper
