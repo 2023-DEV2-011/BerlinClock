@@ -18,10 +18,13 @@ struct BerlinClockView: View {
     var body: some View {
         VStack {
             secondsView(for: viewModel.secondsLampsState)
+            
             clockRowView(for: viewModel.hoursFirstRowState)
             clockRowView(for: viewModel.hoursSecondRowState)
             clockRowView(for: viewModel.minutesFirstRowState)
             clockRowView(for: viewModel.minutesSecondRowState)
+            
+            Text(viewModel.readableHour)
         }
         .padding(16)
         .onAppear {

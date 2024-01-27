@@ -20,9 +20,15 @@ class BerlinClockViewModel {
     var hoursSecondRowState: [LampState]
     var minutesFirstRowState: [LampState]
     var minutesSecondRowState: [LampState]
+    var readableHour: String
     
     private var manager = BerlinClockManager()
     private var cancellable: AnyCancellable?
+    private var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        return formatter
+    }()
     
     // MARK: - Init
     
@@ -32,6 +38,7 @@ class BerlinClockViewModel {
         hoursSecondRowState = Array(repeating: .off, count: Constants.maxHoursLamp)
         minutesFirstRowState = Array(repeating: .off, count: Constants.maxFirstRowMinutesLamp)
         minutesSecondRowState = Array(repeating: .off, count: Constants.maxSecondRowMinutesLamp)
+        readableHour = ""
     }
     
 }
@@ -58,6 +65,8 @@ extension BerlinClockViewModel {
         let minutesLampState = manager.computeMinutesLampState(from: date)
         minutesFirstRowState = minutesLampState.first!
         minutesSecondRowState = minutesLampState.last!
+        
+        readableHour = dateFormatter.string(from: date)
     }
     
 }
