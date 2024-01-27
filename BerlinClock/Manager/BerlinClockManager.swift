@@ -17,8 +17,9 @@ enum LampState {
 
 class BerlinClockManager {
     
-    func computeSecondsLampState() -> LampState {
-        return .red
+    func computeSecondsLampState(from date: Date) -> LampState {
+        let seconds = Calendar.current.component(.second, from: date)
+        return seconds % 2 == 0 ? .red : .off
     }
     
 }
