@@ -34,8 +34,12 @@ class BerlinClockManager {
     }
     
     func computeMinutesLampState(from date: Date) -> [[LampState]] {
-        return [[.yellow, .off, .off, .off, .off, .off, .off, .off, .off, .off, .off],
-                [.off, .off, .off, .off]]
+        let minutes = Calendar.current.component(.minute, from: date)
+        let activeLamp = minutes / Constants.minuteFirstRowLampValue
+        let lampStates = createLampStateRow(activeLamp: activeLamp,
+                                            activeLampState: .yellow,
+                                            count: Constants.maxMinutesLamp)
+        return [lampStates, [.off, .off, .off, .off]]
     }
     
 }
@@ -44,10 +48,10 @@ class BerlinClockManager {
 
 private extension BerlinClockManager {
     
-    func createLampStateRow(activeLamp: Int, count: Int = Constants.maxHoursLamp) -> [LampState] {
+    func createLampStateRow(activeLamp: Int, activeLampState: LampState = .red, count: Int = Constants.maxHoursLamp) -> [LampState] {
         var lampStates = Array(repeating: LampState.off, count: count)
         for i in 0..<activeLamp {
-            lampStates[i] = .red
+            lampStates[i] = activeLampState
         }
         
         return lampStates
