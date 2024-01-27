@@ -23,7 +23,15 @@ class BerlinClockManager {
     }
     
     func computeHoursLampState(from date: Date) -> [[LampState]] {
-        return [[.red, .off, .off, .off], [.off, .off, .off, .off]]
+        let hours = Calendar.current.component(.hour, from: date)
+        let activeLamp = hours / Constants.hoursFirstRowLampValue
+        var firstRowLampState = Array(repeating: LampState.off, count: Constants.maxHoursLamp)
+        
+        for i in 0..<activeLamp {
+            firstRowLampState[i] = .red
+        }
+        
+        return [firstRowLampState, [.off, .off, .off, .off]]
     }
     
 }
