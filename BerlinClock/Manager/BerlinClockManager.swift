@@ -22,4 +22,8 @@ class BerlinClockManager {
         return seconds % 2 == 0 ? .red : .off
     }
     
+    func computeHoursLampState(from date: Date) -> [[LampState]] {
+        return [[.red, .off, .off, .off], [.off, .off, .off, .off]]
+    }
+    
 }
