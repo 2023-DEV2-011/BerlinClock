@@ -16,6 +16,7 @@
 		E8045C592B6565A200D6E8F2 /* BerlinClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8045C582B6565A200D6E8F2 /* BerlinClockManager.swift */; };
 		E8045C5C2B656F9A00D6E8F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8045C5B2B656F9A00D6E8F2 /* Constants.swift */; };
 		E8045C5F2B657A6B00D6E8F2 /* BerlinClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8045C5E2B657A6B00D6E8F2 /* BerlinClockView.swift */; };
+		E8045C612B657AED00D6E8F2 /* BerlinClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8045C602B657AED00D6E8F2 /* BerlinClockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		E8045C582B6565A200D6E8F2 /* BerlinClockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockManager.swift; sourceTree = "<group>"; };
 		E8045C5B2B656F9A00D6E8F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E8045C5E2B657A6B00D6E8F2 /* BerlinClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockView.swift; sourceTree = "<group>"; };
+		E8045C602B657AED00D6E8F2 /* BerlinClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E8045C5E2B657A6B00D6E8F2 /* BerlinClockView.swift */,
+				E8045C602B657AED00D6E8F2 /* BerlinClockViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				E8045C2E2B6563E800D6E8F2 /* BerlinClockApp.swift in Sources */,
 				E8045C5F2B657A6B00D6E8F2 /* BerlinClockView.swift in Sources */,
 				E8045C5C2B656F9A00D6E8F2 /* Constants.swift in Sources */,
+				E8045C612B657AED00D6E8F2 /* BerlinClockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
