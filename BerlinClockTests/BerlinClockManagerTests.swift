@@ -37,5 +37,11 @@ final class BerlinClockManagerTests: XCTestCase {
         let manager = BerlinClockManager()
         assert(manager.computeHoursLampState(from: tenHourDate) == [[.red, .red, .off, .off], [.off, .off, .off, .off]])
     }
+    
+    func testComputeHoursLampStateForEightHours() throws {
+        let eightHourDate = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: Date())!
+        let manager = BerlinClockManager()
+        assert(manager.computeHoursLampState(from: eightHourDate) == [[.red, .off, .off, .off], [.red, .red, .red, .off]])
+    }
 
 }

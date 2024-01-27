@@ -24,14 +24,28 @@ class BerlinClockManager {
     
     func computeHoursLampState(from date: Date) -> [[LampState]] {
         let hours = Calendar.current.component(.hour, from: date)
-        let activeLamp = hours / Constants.hoursFirstRowLampValue
-        var firstRowLampState = Array(repeating: LampState.off, count: Constants.maxHoursLamp)
+        let firstRowActiveLamp = hours / Constants.hoursFirstRowLampValue
+        let secondRowActiveLamp = hours % Constants.hoursFirstRowLampValue
         
+        let firstRowLampState = createLampStateRow(activeLamp: firstRowActiveLamp)
+        let secondRowLampState = createLampStateRow(activeLamp: secondRowActiveLamp)
+        
+        return [firstRowLampState, secondRowLampState]
+    }
+    
+}
+
+// MARK: - Helper
+
+private extension BerlinClockManager {
+    
+    func createLampStateRow(activeLamp: Int, count: Int = Constants.maxHoursLamp) -> [LampState] {
+        var lampStates = Array(repeating: LampState.off, count: count)
         for i in 0..<activeLamp {
-            firstRowLampState[i] = .red
+            lampStates[i] = .red
         }
         
-        return [firstRowLampState, [.off, .off, .off, .off]]
+        return lampStates
     }
     
 }
