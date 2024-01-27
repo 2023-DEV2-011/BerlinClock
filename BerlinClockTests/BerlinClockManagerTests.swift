@@ -66,5 +66,12 @@ final class BerlinClockManagerTests: XCTestCase {
         assert(manager.computeMinutesLampState(from: thirtyFiveMinutesDate) == [[.yellow, .yellow, .red, .yellow, .yellow, .red, .yellow, .off, .off, .off, .off],
                                                      [.off, .off, .off, .off]])
     }
+    
+    func testComputeMinutesLampStateForFourtyTwoMinutes() throws {
+        let fourtyTwoMinutesDate = Calendar.current.date(bySettingHour: 0, minute: 42, second: 0, of: Date())!
+        let manager = BerlinClockManager()
+        assert(manager.computeMinutesLampState(from: fourtyTwoMinutesDate) == [[.yellow, .yellow, .red, .yellow, .yellow, .red, .yellow, .yellow, .off, .off, .off],
+                                                                              [.yellow, .yellow, .off, .off]])
+    }
 
 }
