@@ -18,7 +18,10 @@ struct BerlinClockView: View {
     var body: some View {
         VStack {
             secondsView(for: viewModel.secondsLampsState)
+            clockRowView(for: viewModel.hoursFirstRowState)
+            clockRowView(for: viewModel.hoursSecondRowState)
         }
+        .padding(16)
         .onAppear {
             viewModel.startTrackingTime()
         }
@@ -29,6 +32,17 @@ struct BerlinClockView: View {
             .stroke(.black)
             .fill(viewModel.color(for: state))
             .frame(width: 60)
+    }
+    
+    func clockRowView(for states: [LampState]) -> some View {
+        HStack {
+            ForEach(0..<states.count, id: \.self) { index in
+                Rectangle()
+                    .stroke(.black)
+                    .fill(viewModel.color(for: states[index]))
+                    .frame(height: 50)
+            }
+        }
     }
     
 }
