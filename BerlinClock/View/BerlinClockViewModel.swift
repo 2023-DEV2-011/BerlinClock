@@ -18,6 +18,8 @@ class BerlinClockViewModel {
     var secondsLampsState: LampState
     var hoursFirstRowState: [LampState]
     var hoursSecondRowState: [LampState]
+    var minutesFirstRowState: [LampState]
+    var minutesSecondRowState: [LampState]
     
     private var manager = BerlinClockManager()
     private var cancellable: AnyCancellable?
@@ -28,6 +30,8 @@ class BerlinClockViewModel {
         secondsLampsState = .off
         hoursFirstRowState = Array(repeating: .off, count: Constants.maxHoursLamp)
         hoursSecondRowState = Array(repeating: .off, count: Constants.maxHoursLamp)
+        minutesFirstRowState = Array(repeating: .off, count: Constants.maxFirstRowMinutesLamp)
+        minutesSecondRowState = Array(repeating: .off, count: Constants.maxSecondRowMinutesLamp)
     }
     
 }
@@ -50,6 +54,10 @@ extension BerlinClockViewModel {
         let hoursLampState = manager.computeHoursLampState(from: date)
         hoursFirstRowState = hoursLampState.first!
         hoursSecondRowState = hoursLampState.last!
+        
+        let minutesLampState = manager.computeMinutesLampState(from: date)
+        minutesFirstRowState = minutesLampState.first!
+        minutesSecondRowState = minutesLampState.last!
     }
     
 }

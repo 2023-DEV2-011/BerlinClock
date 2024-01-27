@@ -20,6 +20,8 @@ struct BerlinClockView: View {
             secondsView(for: viewModel.secondsLampsState)
             clockRowView(for: viewModel.hoursFirstRowState)
             clockRowView(for: viewModel.hoursSecondRowState)
+            clockRowView(for: viewModel.minutesFirstRowState)
+            clockRowView(for: viewModel.minutesSecondRowState)
         }
         .padding(16)
         .onAppear {
